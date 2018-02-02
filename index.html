@@ -323,6 +323,195 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/02/Git的基本用法和扩展/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Retouch">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Retouch的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/02/Git的基本用法和扩展/" itemprop="url">Git的基本用法和扩展</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-02T22:51:49+08:00">
+                2018-02-02
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-02-02T22:57:43+08:00">
+                2018-02-02
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,061
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-1-获取Git仓库"><a href="#1-1-获取Git仓库" class="headerlink" title="1.1 获取Git仓库"></a>1.1 获取Git仓库</h3><blockquote>
+<p><code>$ git init</code>        初始化仓库<br><code>$ git add</code>                 跟踪指定文件<br><code>$ git add .</code>              跟踪目录下的所有文件<br><code>$ git clone [url]</code>     克隆现有仓库</p>
+</blockquote>
+<h3 id="1-2-在Git仓库中记录变更"><a href="#1-2-在Git仓库中记录变更" class="headerlink" title="1.2 在Git仓库中记录变更"></a>1.2 在Git仓库中记录变更</h3><blockquote>
+<p><code>$ git status</code>    查看当前文件状态<br><code>$ git status -s</code>查看更精简的文件状态<br><code>$ echo &#39;My Project&#39; &gt; README</code> 创建文本<br><code>$ vim [filename]</code>  打开指定文件并编辑<br><code>$ git diff</code> 查看尚未添加到暂存区的变更(详细内容)<br><code>$ git diff   --staged</code> 已暂存等待提交的内容<br><code>$ git commit -m “message&quot;</code> 提交变更并附带说明<br><code>$ git commit -am &quot;message&quot;</code>跳过暂存区，直接提交并附带说明<br><code>$ git rm [filename]</code> 移除文件取消对该文件的跟踪<br><code>$ git mv [file_from]   [file_to]</code>重命名文件</p>
+</blockquote>
+<h3 id="1-3-查看提交历史"><a href="#1-3-查看提交历史" class="headerlink" title="1.3 查看提交历史"></a>1.3 查看提交历史</h3><blockquote>
+<p><code>$ git log</code>最基本的查看提交历史<br><code>$ git log -p -2</code>查看最近两次提交的历史并显示每次提交所引入的差异<br><code>$ git log --stat</code>改动文件的修改数的提交历史<br><code>$ git log --pretty=oneline</code>prettty是修改日志输出的默认格式，oneline是精简单行显示<br><code>$ git log --oneline --decorate --graph --all</code>图形化显示分支结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">TangdeMacBook-Pro:GitTestFile retouch$ git log --oneline --decorate --graph --all</span><br><span class="line">* 36d7e26 (HEAD -&gt; master) 修改了readme.txt中的内容</span><br><span class="line">* af6d8d9 the fourth modified readme.txt</span><br><span class="line">| * 139f200 (action) 修改了readme2.txt中的内容</span><br><span class="line">| * 5659990 Create action branch and add readme2.txt</span><br><span class="line">| | * db01378 (test) 第二次修改readme2.txt</span><br><span class="line">| |/</span><br><span class="line">| * 8fd49df 第一次修改了readme1.txt文件中的内容</span><br><span class="line">| * 33cbb80 创建了test分支并在此分支中新增了readme.txt文件</span><br><span class="line">|/</span><br><span class="line">* a510523 (tag: V1.0.3) the third modified readme.txt</span><br><span class="line">* 0082357 (tag: V1.0.2) the second modified th readme.txt</span><br><span class="line">* 75be658 (tag: V1.0.1) the first modified the readme.txt</span><br><span class="line">* 329f6bd Initialized git and add readme.txt file</span><br><span class="line">* 41c27e9 (tag: V1.0.0) Create readme.txt file</span><br><span class="line">TangdeMacBook-Pro:GitTestFile retouch$</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="1-4-撤销操作"><a href="#1-4-撤销操作" class="headerlink" title="1.4 撤销操作"></a>1.4 撤销操作</h3><blockquote>
+<p><code>$ git commit --amend</code>更改最近一次提交信息<br><code>$ git reset HEAD [filename]</code>将指定暂存区的文件移出<br><code>$ git checkout -- [filename]</code>撤销对文件的修改<br><code>$ git reset --hard HEAD^</code>或者<code>$ git reset --hard HEAD~1</code>回退到上一个版本<br><code>$ git reset --hard [commit_id]</code>会退到指定的版本<br><code>$ git reflog</code>查看命令历史</p>
+</blockquote>
+<h3 id="1-5-远程仓库的使用"><a href="#1-5-远程仓库的使用" class="headerlink" title="1.5 远程仓库的使用"></a>1.5 远程仓库的使用</h3><blockquote>
+<p><code>$ git remote [shortname]  [url]</code>添加一个远程仓库，并给他一个简短的名称以便引用<br><code>$ git fetch [remote-name]</code>从远程项目获取更新数据<br><code>$ git clone [url]</code>克隆远程仓库的版本到本地，成功后本地就有了和远程仓库相同的代码。并且已经和远程仓库连接成功.<br><code>$ git push [remote-name]  [branch-name]</code>将本地指定的分支数据推送到指定的远程服务器上<br><code>$ git remote show [remote-name]</code>查看某一远程仓库的更多信息<br><code>$ git remote rename  [oldname] [newname]</code>重命名远程仓库<br><code>$ git remote rm [remote-name]</code> 删除指定的远程仓库</p>
+</blockquote>
+<h3 id="1-6-标记标签"><a href="#1-6-标记标签" class="headerlink" title="1.6 标记标签"></a>1.6 标记标签</h3><blockquote>
+<p><code>$ git tag</code>列举所有标签<br><code>$ git tag -a V1.0.0 -m &quot;message&quot;</code>创建标签并附带说明<br><code>$ git show V1.0.0</code>查看某一个标签的详细信息和对应的提交信息<br><code>$ git tag -a V1.2.2 9fceb02</code>给某一个提交版本补加标签<br><code>$ git push [remote-name] [tagname]</code>默认情况git push命令不会把标签传输到远程服务器上，你必须明确将某个标签信息共享到服务器上</p>
+</blockquote>
+<h3 id="1-7-Git-别名"><a href="#1-7-Git-别名" class="headerlink" title="1.7 Git 别名"></a>1.7 Git 别名</h3><blockquote>
+<p><code>$ git config --global alias.co checkout</code><br><code>$ git config --global alias.br branch</code><br><code>$ git config --global alias.ci commit</code><br><code>$ git config --global alias.st status</code><br><code>$ git config --global alias.last &#39;log -1 HEAD&#39;</code>查看最近一次提交信息的别名设置</p>
+</blockquote>
+<h3 id="2-0-Git分支"><a href="#2-0-Git分支" class="headerlink" title="2.0 Git分支"></a>2.0 Git分支</h3><blockquote>
+<p><code>$ git branch</code>列举当前项目下的所有分支，带*号的分支表示当前处于的分支<br><code>$ git branch [branch-name]</code>创建一个新的分支<br><code>$ git checkout [branch-name]</code>切换到指定的分支上<br><code>$ git checkout -b [branch-name]</code>创建并切换到该分支上<br><code>$ git merge [branch-name]</code>合并指定分支到当前分支<br><code>$ git branch -d [branch-name]</code>删除某一分支<br><code>$ git branch --merged</code>显示已并入当前分支的所有分支<br><code>$ git branch --no-merged</code>显示尚未并入的所有分支<br><code>$ git push [remote-name] --delete [branch-name]</code>删除远程分支</p>
+</blockquote>
+<h2 id="Git服务器"><a href="#Git服务器" class="headerlink" title="Git服务器"></a>Git服务器</h2><h3 id="1-1-Git的各种协议和优劣性比较"><a href="#1-1-Git的各种协议和优劣性比较" class="headerlink" title="1.1 Git的各种协议和优劣性比较"></a>1.1 Git的各种协议和优劣性比较</h3><p>git使用4种主要的协议来传输数据：本地协议，HTTP协议，SSH协议和Git协议。</p>
+<p><img src="./WechatIMG779.jpeg" alt="Alt text"></p>
+<h2 id="GitFlow"><a href="#GitFlow" class="headerlink" title="GitFlow"></a>GitFlow</h2><img src="/2018/02/02/Git的基本用法和扩展/WechatIMG71.jpeg" title="这是一个新的博客的图片的说明">
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/02/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -531,7 +720,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -603,7 +792,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">78</span>
+    <span title="Site words total count">1.1k</span>
   
 </div>
 
