@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1.1 获取Git仓库 $ git init        初始化仓库$ git add                 跟踪指定文件$ git add .              跟踪目录下的所有文件$ git clone [url]     克隆现有仓库  1.2 在Git仓库中记录变更 $ git status    查看当前文件状态$ git status -s查看更精简的文件状态$ e">
+<meta name="description" content="Git 简史Git的简单介绍和相关原理Linux内核是一个超大规模的开源软件项目，早期对Linux的维护采用的是通过传递补丁和归档文件的方式来实现的。直到2002年，Linux内核项目开始采用一个叫BitKeeper的专有分布式版本控制系统。 2005年，Linux内核开发者社区与BitKeeper的研发公司关系破裂，该公司收回了软件的免费使用权，促使Linux开发社区(尤其是Linux之父林纳斯">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git的基本用法和扩展">
 <meta property="og:url" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/index.html">
 <meta property="og:site_name" content="Retouch的博客">
-<meta property="og:description" content="1.1 获取Git仓库 $ git init        初始化仓库$ git add                 跟踪指定文件$ git add .              跟踪目录下的所有文件$ git clone [url]     克隆现有仓库  1.2 在Git仓库中记录变更 $ git status    查看当前文件状态$ git status -s查看更精简的文件状态$ e">
+<meta property="og:description" content="Git 简史Git的简单介绍和相关原理Linux内核是一个超大规模的开源软件项目，早期对Linux的维护采用的是通过传递补丁和归档文件的方式来实现的。直到2002年，Linux内核项目开始采用一个叫BitKeeper的专有分布式版本控制系统。 2005年，Linux内核开发者社区与BitKeeper的研发公司关系破裂，该公司收回了软件的免费使用权，促使Linux开发社区(尤其是Linux之父林纳斯">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/GitFlow示意图.jpeg">
-<meta property="og:updated_time" content="2018-02-05T07:20:24.917Z">
+<meta property="og:updated_time" content="2018-02-10T09:08:34.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的基本用法和扩展">
-<meta name="twitter:description" content="1.1 获取Git仓库 $ git init        初始化仓库$ git add                 跟踪指定文件$ git add .              跟踪目录下的所有文件$ git clone [url]     克隆现有仓库  1.2 在Git仓库中记录变更 $ git status    查看当前文件状态$ git status -s查看更精简的文件状态$ e">
+<meta name="twitter:description" content="Git 简史Git的简单介绍和相关原理Linux内核是一个超大规模的开源软件项目，早期对Linux的维护采用的是通过传递补丁和归档文件的方式来实现的。直到2002年，Linux内核项目开始采用一个叫BitKeeper的专有分布式版本控制系统。 2005年，Linux内核开发者社区与BitKeeper的研发公司关系破裂，该公司收回了软件的免费使用权，促使Linux开发社区(尤其是Linux之父林纳斯">
 <meta name="twitter:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/GitFlow示意图.jpeg">
 
 
@@ -344,8 +344,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-05T15:20:24+08:00">
-                2018-02-05
+              <time title="更新于" itemprop="dateModified" datetime="2018-02-10T17:08:34+08:00">
+                2018-02-10
               </time>
             
           </span>
@@ -372,7 +372,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,061
+                  1,696
                 </span>
               
 
@@ -388,7 +388,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  7
                 </span>
               
             </div>
@@ -409,7 +409,11 @@
       
 
       
-        <h3 id="1-1-获取Git仓库"><a href="#1-1-获取Git仓库" class="headerlink" title="1.1 获取Git仓库"></a>1.1 获取Git仓库</h3><blockquote>
+        <h1 id="Git-简史"><a href="#Git-简史" class="headerlink" title="Git 简史"></a>Git 简史</h1><h2 id="Git的简单介绍和相关原理"><a href="#Git的简单介绍和相关原理" class="headerlink" title="Git的简单介绍和相关原理"></a>Git的简单介绍和相关原理</h2><p>Linux内核是一个超大规模的开源软件项目，早期对Linux的维护采用的是通过传递补丁和归档文件的方式来实现的。直到2002年，Linux内核项目开始采用一个叫BitKeeper的专有分布式版本控制系统。</p>
+<p>2005年，Linux内核开发者社区与BitKeeper的研发公司关系破裂，该公司收回了软件的免费使用权，促使Linux开发社区(尤其是Linux之父林纳斯·托瓦兹)在吸取BitKeeper的使用经验上，开发出了自己的版本控制系统Git。<br>新的版本控制系统具有如下特点：<br>1.速度快。<br>2.设计简洁。<br>3.对非线性开发强有力的支持。<br>4.完全分布式设计。<br>5.能够有效的处理像Linux内核这种大型项目。</p>
+<p>Git与其他版本控制系统最大的不同在于其对待数据的方式，其他大多数版本控制系统(SVN、CVS等)以文件变化列表的方式存储信息。这类系统将其存储的信息视为一组文件以及对这些文件随时间所做的变更。<br>而Git并没有采取这种方式对待和存储数据。它更像是将数据视为一个微型文件系统的一组快照。每次提交或在Git中保存项目的状态时，Git基本上会抓取一张所有文件当前状态的快照，然后存储一个之昂想该快照的引用。处于效率考虑，如果文件并没有发生变动，Git则不会再重新保存文件，而是留下一个指向先前已保存过的相同的文件的链接。<br>还有一点是Git中的大部分操作只需要用到本地文件和资源。一般无需从网络上获取信息。项目完整的历史记录都存在本地磁盘上，所以绝大多数的操作都能瞬间完成。</p>
+<h2 id="Git使用的核心内容"><a href="#Git使用的核心内容" class="headerlink" title="Git使用的核心内容"></a>Git使用的核心内容</h2><p>在Git中，文件可以处于以下三种状态之一：已提交、已修改、已暂存。<br>已提交：表示数据已经被安全存入本地数据库中。<br>已修改：表示已经改动了文件，但尚未提交到数据库。<br>已暂存：表示对已修改的文件的当前版本做出了标识并将其加入下一次要提交的快照中。</p>
+<h3 id="1-1-获取Git仓库"><a href="#1-1-获取Git仓库" class="headerlink" title="1.1 获取Git仓库"></a>1.1 获取Git仓库</h3><blockquote>
 <p><code>$ git init</code>        初始化仓库<br><code>$ git add</code>                 跟踪指定文件<br><code>$ git add .</code>              跟踪目录下的所有文件<br><code>$ git clone [url]</code>     克隆现有仓库</p>
 </blockquote>
 <h3 id="1-2-在Git仓库中记录变更"><a href="#1-2-在Git仓库中记录变更" class="headerlink" title="1.2 在Git仓库中记录变更"></a>1.2 在Git仓库中记录变更</h3><blockquote>
@@ -615,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-获取Git仓库"><span class="nav-number">1.</span> <span class="nav-text">1.1 获取Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-在Git仓库中记录变更"><span class="nav-number">2.</span> <span class="nav-text">1.2 在Git仓库中记录变更</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-查看提交历史"><span class="nav-number">3.</span> <span class="nav-text">1.3 查看提交历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-撤销操作"><span class="nav-number">4.</span> <span class="nav-text">1.4 撤销操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-远程仓库的使用"><span class="nav-number">5.</span> <span class="nav-text">1.5 远程仓库的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-标记标签"><span class="nav-number">6.</span> <span class="nav-text">1.6 标记标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-Git-别名"><span class="nav-number">7.</span> <span class="nav-text">1.7 Git 别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-0-Git分支"><span class="nav-number">8.</span> <span class="nav-text">2.0 Git分支</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git服务器"><span class="nav-number"></span> <span class="nav-text">Git服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Git的各种协议和优劣性比较"><span class="nav-number">1.</span> <span class="nav-text">1.1 Git的各种协议和优劣性比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitFlow"><span class="nav-number"></span> <span class="nav-text">GitFlow</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-简史"><span class="nav-number">1.</span> <span class="nav-text">Git 简史</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的简单介绍和相关原理"><span class="nav-number">1.1.</span> <span class="nav-text">Git的简单介绍和相关原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git使用的核心内容"><span class="nav-number">1.2.</span> <span class="nav-text">Git使用的核心内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-获取Git仓库"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.1 获取Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-在Git仓库中记录变更"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2 在Git仓库中记录变更</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-查看提交历史"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.3 查看提交历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-撤销操作"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.4 撤销操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-远程仓库的使用"><span class="nav-number">1.2.5.</span> <span class="nav-text">1.5 远程仓库的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-标记标签"><span class="nav-number">1.2.6.</span> <span class="nav-text">1.6 标记标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-Git-别名"><span class="nav-number">1.2.7.</span> <span class="nav-text">1.7 Git 别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-0-Git分支"><span class="nav-number">1.2.8.</span> <span class="nav-text">2.0 Git分支</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git服务器"><span class="nav-number">1.3.</span> <span class="nav-text">Git服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Git的各种协议和优劣性比较"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.1 Git的各种协议和优劣性比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitFlow"><span class="nav-number">1.4.</span> <span class="nav-text">GitFlow</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -649,7 +653,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.1k</span>
+    <span title="Site words total count">1.8k</span>
   
 </div>
 
