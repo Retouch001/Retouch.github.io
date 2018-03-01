@@ -94,11 +94,10 @@
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/GitFlow示意图.jpeg">
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch6.png">
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch8.png">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git的基本用法和扩展/Git_branch9.png">
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch9.png">
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch3.png">
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch10.png">
-<meta property="og:updated_time" content="2018-03-01T09:52:22.946Z">
+<meta property="og:updated_time" content="2018-03-01T09:59:50.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的基本用法和扩展">
 <meta name="twitter:description" content="Git 简史Git的简单介绍和相关原理Linux内核是一个超大规模的开源软件项目，早期对Linux的维护采用的是通过传递补丁和归档文件的方式来实现的。直到2002年，Linux内核项目开始采用一个叫BitKeeper的专有分布式版本控制系统。 2005年，Linux内核开发者社区与BitKeeper的研发公司关系破裂，该公司收回了软件的免费使用权，促使Linux开发社区(尤其是Linux之父林纳斯">
@@ -355,7 +354,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-01T17:52:22+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-01T17:59:50+08:00">
                 2018-03-01
               </time>
             
@@ -457,8 +456,7 @@
 <p><code>$ git clone https://github.com/libgit2/libgit2</code></p>
 <p>执行此命令后会在终端当前的目录创建一个名为libgit2的新目录，并在其中初始化.git目录，然后将远程仓库中所有数据拉取到本地并检出最新版本的可用副本。如果想将项目克隆到其他名字的目录中，可以把目录名作为命令行选项传入：</p>
 <p><code>$ git clone https://github.com/libgit2/libgit2 mylibgit</code></p>
-<p>## 在Git仓库中记录变更</p>
-<p>请记住，工作目录下的每个文件都处于两种状态之一：已跟踪（tracked）或未跟踪（untracked）。已跟踪的文件又可分为未修改、已修改和已暂存三种状态。如果修改了文件，他们在Git中的状态会变成已修改，这意味着自上次提交以来文件已经发生了变化。接下来要把这些已修改的文件添加到暂存区，提交所有已暂存的变更，随后重复这个过程。</p>
+<h2 id="在Git仓库中记录变更"><a href="#在Git仓库中记录变更" class="headerlink" title="在Git仓库中记录变更"></a>在Git仓库中记录变更</h2><p>请记住，工作目录下的每个文件都处于两种状态之一：已跟踪（tracked）或未跟踪（untracked）。已跟踪的文件又可分为未修改、已修改和已暂存三种状态。如果修改了文件，他们在Git中的状态会变成已修改，这意味着自上次提交以来文件已经发生了变化。接下来要把这些已修改的文件添加到暂存区，提交所有已暂存的变更，随后重复这个过程。</p>
 <p>检测文件所处状态主要命令是<code>git status</code>，虽然<code>git status</code>命令的输出信息很全面，但也着实冗长。对此，Git提供了一个现实简短状态的命令行选项<code>git status -s</code> 例如：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git status -s</span><br><span class="line">M README</span><br><span class="line">MM Rakefile</span><br><span class="line">A lib/git.rb</span><br><span class="line">M lib/simlegit.rb</span><br><span class="line">?? LICENSE.txt</span><br></pre></td></tr></table></figure>
 <p>未被跟踪的文件旁边会有一个<code>??</code>标记，已暂存的新文件会有<code>A</code>标记，而已修改的文件会有<code>M</code>标记，已修改并被添加到暂存区，之后又被修改过会有<code>MM</code>标记。</p>
@@ -553,8 +551,7 @@
 <p>假如你不小心将一个无关文件添加到了暂存区，你想要将该文件移出暂存区，可以使用<code>git reset HEAD &lt;file&gt;…</code>命令把文件移出暂存区。</p>
 <p>如果你突然发现，自己不再需要对CONTRIBUTING.md文件所做的更改，可以使用<code>git checkout -- &lt;file&gt;..</code></p>
 <p>如果我们需要回退到某一版本并且放弃所有的修改，可以使用<code>git reset --hard 校验码</code>，把当前的版本回退到上X个版本可以使用<code>git reset --hard HEAD~x</code>。如果我们想会退到之后的版本，可以先执行<code>git reflog</code>找到你要回退的那个版本的校验码，然后使用<code>git rest --hard 校验码</code>就可以成功的会退到当前版本之后的版本了(前提是你是有之后的版本的)。</p>
-<p>###回退远程仓库的版本</p>
-<p>先在本地切换到远程仓库要回退的分支对应的本地分支，然后本地回退至你需要的版本，然后执行：<code>git push &lt;仓库名&gt; &lt;分支名&gt; -f</code></p>
+<h3 id="回退远程仓库的版本"><a href="#回退远程仓库的版本" class="headerlink" title="回退远程仓库的版本"></a>回退远程仓库的版本</h3><p>先在本地切换到远程仓库要回退的分支对应的本地分支，然后本地回退至你需要的版本，然后执行：<code>git push &lt;仓库名&gt; &lt;分支名&gt; -f</code></p>
 <p>如何以当前版本为基础，回退指定个commit</p>
 <p>首先，确认你当前的版本需要回退多少个版本，然后计算出你要回退的版本数量，执行如下命令：<code>git reset HEAD~X //X代表你要回退的版本数量，是数字！！！！</code></p>
 <p>需要注意的是，如果你是合并过分支，那么背合并分支带过来的commit并不会被计入回退数量中，而是只计算一个，所以如果需要一次回退多个commit，不建议使用这种方法</p>
@@ -629,7 +626,7 @@
 <img src="/2018/02/02/Git的基本用法和扩展/Git_branch8.png">
 
 <p>要与服务器同步，需要执行<code>git fetch origin</code>命令。这条命令会查询origin对应的服务器地址，并从服务器取得所有本地尚未包含的数据，然后更新本地数据库，最后把<code>origin/master</code>指针移动到最新位置上去</p>
-<p><img src="./Git的基本用法和扩展/Git_branch9.png" alt="Git_branch9"><br><img src="/2018/02/02/Git的基本用法和扩展/Git_branch9.png"></p>
+<img src="/2018/02/02/Git的基本用法和扩展/Git_branch9.png">
 <p>当需要同别人共享某个分支上的工作成果时，就要把它推送到一个具有写权限的远程仓库。假设你有一个叫做serverfix的分支需要与其他人协作开发，你可以按照之前推送第一个分支的方式推送它。只需执行<code>git push （remote_name） （branch_name）</code>命令即可</p>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">push</span> <span class="built_in">origin</span> serverfix</span><br></pre></td></tr></table></figure>
 <p>当你和你的同事已经完成了一个功能，并且把工作合并到了远程的主分支master上，你已经不再需要这个功能的远程分支了。可以通过<code>git push --delete</code>选项来删除远程分支。例如：</p>
@@ -824,7 +821,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-简史"><span class="nav-number">1.</span> <span class="nav-text">Git 简史</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的简单介绍和相关原理"><span class="nav-number">1.1.</span> <span class="nav-text">Git的简单介绍和相关原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git使用的核心内容"><span class="nav-number">1.2.</span> <span class="nav-text">Git使用的核心内容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git基础"><span class="nav-number">2.</span> <span class="nav-text">Git基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Git仓库"><span class="nav-number">2.1.</span> <span class="nav-text">获取Git仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看提交历史"><span class="nav-number">2.2.</span> <span class="nav-text">查看提交历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销操作-版本回退"><span class="nav-number">2.3.</span> <span class="nav-text">撤销操作(版本回退)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程仓库的使用"><span class="nav-number">2.4.</span> <span class="nav-text">远程仓库的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签"><span class="nav-number">2.5.</span> <span class="nav-text">标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git别名"><span class="nav-number">2.6.</span> <span class="nav-text">Git别名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git分支机制"><span class="nav-number">3.</span> <span class="nav-text">Git分支机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分支机制简述"><span class="nav-number">3.1.</span> <span class="nav-text">分支机制简述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本的分支与合并操作"><span class="nav-number">3.2.</span> <span class="nav-text">基本的分支与合并操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与分支有关的工作流"><span class="nav-number">3.3.</span> <span class="nav-text">与分支有关的工作流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程分支"><span class="nav-number">3.4.</span> <span class="nav-text">远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变基"><span class="nav-number">3.5.</span> <span class="nav-text">变基</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-简史"><span class="nav-number">1.</span> <span class="nav-text">Git 简史</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的简单介绍和相关原理"><span class="nav-number">1.1.</span> <span class="nav-text">Git的简单介绍和相关原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git使用的核心内容"><span class="nav-number">1.2.</span> <span class="nav-text">Git使用的核心内容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git基础"><span class="nav-number">2.</span> <span class="nav-text">Git基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Git仓库"><span class="nav-number">2.1.</span> <span class="nav-text">获取Git仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Git仓库中记录变更"><span class="nav-number">2.2.</span> <span class="nav-text">在Git仓库中记录变更</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看提交历史"><span class="nav-number">2.3.</span> <span class="nav-text">查看提交历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销操作-版本回退"><span class="nav-number">2.4.</span> <span class="nav-text">撤销操作(版本回退)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#回退远程仓库的版本"><span class="nav-number">2.4.1.</span> <span class="nav-text">回退远程仓库的版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程仓库的使用"><span class="nav-number">2.5.</span> <span class="nav-text">远程仓库的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签"><span class="nav-number">2.6.</span> <span class="nav-text">标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git别名"><span class="nav-number">2.7.</span> <span class="nav-text">Git别名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git分支机制"><span class="nav-number">3.</span> <span class="nav-text">Git分支机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分支机制简述"><span class="nav-number">3.1.</span> <span class="nav-text">分支机制简述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本的分支与合并操作"><span class="nav-number">3.2.</span> <span class="nav-text">基本的分支与合并操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与分支有关的工作流"><span class="nav-number">3.3.</span> <span class="nav-text">与分支有关的工作流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程分支"><span class="nav-number">3.4.</span> <span class="nav-text">远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变基"><span class="nav-number">3.5.</span> <span class="nav-text">变基</span></a></li></ol></li></ol></div>
             
 
           </div>
