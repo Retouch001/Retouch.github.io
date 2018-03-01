@@ -91,13 +91,13 @@
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch2.png">
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch3.png">
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch4.png">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/GitFlow示意图.jpeg">
+<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/GitFlow示意图.png">
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch6.png">
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch8.png">
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch9.png">
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch3.png">
 <meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch10.png">
-<meta property="og:updated_time" content="2018-03-01T09:59:50.745Z">
+<meta property="og:updated_time" content="2018-03-01T10:10:22.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的基本用法和扩展">
 <meta name="twitter:description" content="Git 简史Git的简单介绍和相关原理Linux内核是一个超大规模的开源软件项目，早期对Linux的维护采用的是通过传递补丁和归档文件的方式来实现的。直到2002年，Linux内核项目开始采用一个叫BitKeeper的专有分布式版本控制系统。 2005年，Linux内核开发者社区与BitKeeper的研发公司关系破裂，该公司收回了软件的免费使用权，促使Linux开发社区(尤其是Linux之父林纳斯">
@@ -354,7 +354,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-01T17:59:50+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-01T18:10:22+08:00">
                 2018-03-01
               </time>
             
@@ -616,7 +616,7 @@
 <h2 id="与分支有关的工作流"><a href="#与分支有关的工作流" class="headerlink" title="与分支有关的工作流"></a>与分支有关的工作流</h2><p><strong>长期分支</strong></p>
 <p>很多使用Git的开发者都喜欢用这种方式创建他们自己的工作流。例如，其中一种流程就是在master分支上只存放稳定版的代码。他们会使用另一种叫作develop或next的平行分支用于开发，或是测试代码的稳定性。这个分支不会一直保持稳定版本，不过一旦他达到了稳定版本的状态，就可以把它合并到master分支去。这样的分支也被用来接收主题分支(例如前面的iss53分支)的合并，来确保这些新开发的特性能够通过所有测试而不会引发新的错误。</p>
 <p>如下是一个典型的工作流模式：</p>
-<img src="/2018/02/02/Git的基本用法和扩展/GitFlow示意图.jpeg">
+<img src="/2018/02/02/Git的基本用法和扩展/GitFlow示意图.png">
 <h2 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h2><p>远程分支是指向远程仓库的分支的指针，这些指针存在于本地且无法移动。当你与服务器进行任何网络通信时，它们会自动更新。远程分支有点像书签，它们会提示你上一次连接服务器时远程仓库中每个分支的位置。</p>
 <p>假设我们现在有个github.ourcompany.com的服务器，服务器上已存在正在进行的项目：</p>
 
