@@ -86,24 +86,23 @@
 <meta property="og:site_name" content="Retouch的博客">
 <meta property="og:description" content="Git 简史Git的简单介绍和相关原理Linux内核是一个超大规模的开源软件项目，早期对Linux的维护采用的是通过传递补丁和归档文件的方式来实现的。直到2002年，Linux内核项目开始采用一个叫BitKeeper的专有分布式版本控制系统。 2005年，Linux内核开发者社区与BitKeeper的研发公司关系破裂，该公司收回了软件的免费使用权，促使Linux开发社区(尤其是Linux之父林纳斯">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Retouch的博客/source/_posts/Git的基本用法和扩展/git文件提交原理.jpeg">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Retouch的博客/source/_posts/Git的基本用法和扩展/git.png">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Retouch的博客/source/_posts/Git的基本用法和扩展/Git_branch2.png">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Retouch的博客/source/_posts/Git的基本用法和扩展/Git_branch3.png">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/Desktop/Git_branch4.png">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Retouch的博客/source/_posts/Git的基本用法和扩展/GitFlow示意图.jpeg">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/Desktop/Git_Branch5.png">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/Desktop/Git_branch6.png">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/Desktop/Git_branch8.png">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/Desktop/Git_brance7.png">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/Desktop/Git_branch9.png">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/Desktop/Git_branch3.png">
-<meta property="og:image" content="https://retouch001.github.io/2018/02/Desktop/Git_branch10.png">
-<meta property="og:updated_time" content="2018-03-01T09:12:22.373Z">
+<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/git文件提交原理.jpeg">
+<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/git.png">
+<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch2.png">
+<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch3.png">
+<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch4.png">
+<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/GitFlow示意图.jpeg">
+<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch6.png">
+<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch8.png">
+<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git的基本用法和扩展/Git_branch9.png">
+<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch9.png">
+<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch3.png">
+<meta property="og:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/Git_branch10.png">
+<meta property="og:updated_time" content="2018-03-01T09:52:22.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的基本用法和扩展">
 <meta name="twitter:description" content="Git 简史Git的简单介绍和相关原理Linux内核是一个超大规模的开源软件项目，早期对Linux的维护采用的是通过传递补丁和归档文件的方式来实现的。直到2002年，Linux内核项目开始采用一个叫BitKeeper的专有分布式版本控制系统。 2005年，Linux内核开发者社区与BitKeeper的研发公司关系破裂，该公司收回了软件的免费使用权，促使Linux开发社区(尤其是Linux之父林纳斯">
-<meta name="twitter:image" content="https://retouch001.github.io/2018/02/02/Retouch的博客/source/_posts/Git的基本用法和扩展/git文件提交原理.jpeg">
+<meta name="twitter:image" content="https://retouch001.github.io/2018/02/02/Git的基本用法和扩展/git文件提交原理.jpeg">
 
 
 
@@ -356,7 +355,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-01T17:12:22+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-01T17:52:22+08:00">
                 2018-03-01
               </time>
             
@@ -444,8 +443,7 @@
 <li><strong>已暂存：表示对已修改的文件的当前版本做出了标识并将其加入下一次要提交的快照中。</strong></li>
 </ol>
 </blockquote>
-<p>文件状态变更的流程如下所示：</p>
-<p><img src="../Retouch的博客/source/_posts/Git的基本用法和扩展/git文件提交原理.jpeg" alt="git文件提交原理"></p>
+<p>文件状态变更的流程如下所示：<br><img src="/2018/02/02/Git的基本用法和扩展/git文件提交原理.jpeg" title="git文件提交原理"></p>
 <h1 id="Git基础"><a href="#Git基础" class="headerlink" title="Git基础"></a>Git基础</h1><h2 id="获取Git仓库"><a href="#获取Git仓库" class="headerlink" title="获取Git仓库"></a>获取Git仓库</h2><p>建立Git项目的方式有两种</p>
 <blockquote>
 <p>第一种是在现有项目的目录中初始化Git仓库，操作步骤如下：</p>
@@ -607,41 +605,41 @@
 <p>要切换到已有的分支，可以执行<code>git checkout</code>命令，例如:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout testing</span></span><br></pre></td></tr></table></figure>
 <p>这条命令会改变HEAD指针，使其指向testing分支。而有一个简单方式可以在创建分支的同时又将HEAD指针切换到该分支上，使用命令<code>git checkout -b</code>。</p>
-<p><img src="../Retouch的博客/source/_posts/Git的基本用法和扩展/git.png" alt="git"></p>
+<img src="/2018/02/02/Git的基本用法和扩展/git.png">
 <p>如果你想将分支hotfix合并到master主分支上，可以使用<code>git merge</code>命令来完成操作：</p>
 <p>具体操作流程如下：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">$ git merge hotfix</span><br></pre></td></tr></table></figure>
 <p>合并时你会注意到出现了<code>fast-forward</code>的提示，由于当前所在的master分支指向的提交是要并入的hotfix分支的直接上游，因而Git会将master分支指针向前移动。因为这种单线历史不存在有分歧的工作。这就叫<code>fast-forward</code></p>
-<p><img src="../Retouch的博客/source/_posts/Git的基本用法和扩展/Git_branch2.png" alt="Git_branch2"></p>
+<img src="/2018/02/02/Git的基本用法和扩展/Git_branch2.png">
 <p>合并完成后我们就可以删除hotfix分支，并继续完成iss53的工作<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git brancn -d hotfix</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git checkout iss53</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit -am <span class="string">'commit'</span></span></span><br></pre></td></tr></table></figure></p>
-<p><img src="../Retouch的博客/source/_posts/Git的基本用法和扩展/Git_branch3.png" alt="Git_branch3"></p>
+<img src="/2018/02/02/Git的基本用法和扩展/Git_branch3.png">
 <p>假设现在iss53上面的工作已经完成，可以合并到master分支了。这次合并操作实现与上面的相同。但操作的结果却不一样了，在这次合并中，开发历史从某个早先的时间点开始有了分叉。由于当前的master分支指向的提交不是iss53分支的直接祖先，因而Git必须要做一些额外的工作。本例中，Git执行的操作是简单的三方合并。三方合并操作会使用两个待合并分支上最新提交的快照，以及这两个分支的共同祖先的提交快照。</p>
 <p>与之前的做法不同，这一次Git会基于三方合并的结果创建新的快照，让后再创建一个提交指向新建的快照。这个提交叫做‘’合并提交’‘。<strong>合并提交的特殊性在于他拥有不止一个父提交。</strong></p>
-<p><img src="../../Desktop/Git_branch4.png" alt="Git_branch4"></p>
+<img src="/2018/02/02/Git的基本用法和扩展/Git_branch4.png">
 <h2 id="与分支有关的工作流"><a href="#与分支有关的工作流" class="headerlink" title="与分支有关的工作流"></a>与分支有关的工作流</h2><p><strong>长期分支</strong></p>
 <p>很多使用Git的开发者都喜欢用这种方式创建他们自己的工作流。例如，其中一种流程就是在master分支上只存放稳定版的代码。他们会使用另一种叫作develop或next的平行分支用于开发，或是测试代码的稳定性。这个分支不会一直保持稳定版本，不过一旦他达到了稳定版本的状态，就可以把它合并到master分支去。这样的分支也被用来接收主题分支(例如前面的iss53分支)的合并，来确保这些新开发的特性能够通过所有测试而不会引发新的错误。</p>
 <p>如下是一个典型的工作流模式：</p>
-<p><img src="../Retouch的博客/source/_posts/Git的基本用法和扩展/GitFlow示意图.jpeg" alt="GitFlow示意图"></p>
+<img src="/2018/02/02/Git的基本用法和扩展/GitFlow示意图.jpeg">
 <h2 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h2><p>远程分支是指向远程仓库的分支的指针，这些指针存在于本地且无法移动。当你与服务器进行任何网络通信时，它们会自动更新。远程分支有点像书签，它们会提示你上一次连接服务器时远程仓库中每个分支的位置。</p>
 <p>假设我们现在有个github.ourcompany.com的服务器，服务器上已存在正在进行的项目：</p>
-<p><img src="../../Desktop/Git_Branch5.png" alt="Git_Branch5"></p>
+
 <p>如果你将内容从服务器上克隆到本地，Git的clone命令会自动把这台服务器命名为origin，并拉取它的全部数据，然后会在本地创建指向服务器上master分支的指针，并命名为origin/master。Git接着会帮你创建你自己的本地master分支。如下所示：</p>
-<p><img src="../../Desktop/Git_branch6.png" alt="Git_branch6"></p>
+<img src="/2018/02/02/Git的基本用法和扩展/Git_branch6.png">
 <p>假设你在本地的master分支上进行了一些工作，于此同时，别人向github.outcompany.com推送了数据，更新了服务器上的master分支，这时你的历史提交就与服务器的历史产生了偏差。而且，只要你不与服务器通信，你的origin/master指针就不会移动。</p>
-<p><img src="../../Desktop/Git_branch8.png" alt="Git_branch8"></p>
-<p><img src="../../Desktop/Git_brance7.png" alt="Git_brance7"></p>
+<img src="/2018/02/02/Git的基本用法和扩展/Git_branch8.png">
+
 <p>要与服务器同步，需要执行<code>git fetch origin</code>命令。这条命令会查询origin对应的服务器地址，并从服务器取得所有本地尚未包含的数据，然后更新本地数据库，最后把<code>origin/master</code>指针移动到最新位置上去</p>
-<p><img src="../../Desktop/Git_branch9.png" alt="Git_branch9"></p>
+<p><img src="./Git的基本用法和扩展/Git_branch9.png" alt="Git_branch9"><br><img src="/2018/02/02/Git的基本用法和扩展/Git_branch9.png"></p>
 <p>当需要同别人共享某个分支上的工作成果时，就要把它推送到一个具有写权限的远程仓库。假设你有一个叫做serverfix的分支需要与其他人协作开发，你可以按照之前推送第一个分支的方式推送它。只需执行<code>git push （remote_name） （branch_name）</code>命令即可</p>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">push</span> <span class="built_in">origin</span> serverfix</span><br></pre></td></tr></table></figure>
 <p>当你和你的同事已经完成了一个功能，并且把工作合并到了远程的主分支master上，你已经不再需要这个功能的远程分支了。可以通过<code>git push --delete</code>选项来删除远程分支。例如：</p>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">push</span> <span class="built_in">origin</span> —<span class="built_in">delete</span> serverfix</span><br></pre></td></tr></table></figure>
 <h2 id="变基"><a href="#变基" class="headerlink" title="变基"></a>变基</h2><p>在Git中，要把更改从一个分支整合到另一个分支，有两种主要的方式：合并(merge)和变基(rebase)。</p>
-<p><img src="../../Desktop/Git_branch3.png" alt="Git_branch3"></p>
+<img src="/2018/02/02/Git的基本用法和扩展/Git_branch3.png">
 <p>比如上面这种情况，我们之前采用的是merge命令，我们依然记得该命令会对两个分支上的最新提交快照以及这两个提交快照最近的共同祖先，进行一次三方合并，并创建一个新的合并提交。</p>
 <p>实际上除了上述方式之外还有一种方式：你可以把C5提交的更改以补丁的形式应用到C4上。在Git中，这就叫变基操作。该操作使用的是rebase命令，会把某个分支上的所有提交的更改在另一个分支上重现一遍。这样我们可以对上面的这种情况进行如下操作：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout iss53</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git rebase master</span></span><br></pre></td></tr></table></figure>
-<p><img src="../../Desktop/Git_branch10.png" alt="Git_branch10"></p>
+<img src="/2018/02/02/Git的基本用法和扩展/Git_branch10.png">
 <p>现在你可以回到master分支进行快进合并(fast-forward merge):</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout master</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git merge iss53</span></span><br></pre></td></tr></table></figure>
 <p>到此为止，通过rebase和merge的方法得到的最终快照是完全一样的，但使用变基的方式可以获得更简洁的提交历史。</p>
