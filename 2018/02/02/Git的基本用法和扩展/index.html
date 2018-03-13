@@ -557,7 +557,7 @@
 <p>需要注意的是，如果你是合并过分支，那么背合并分支带过来的commit并不会被计入回退数量中，而是只计算一个，所以如果需要一次回退多个commit，不建议使用这种方法</p>
 <p>如何回退到和远程版本一样</p>
 <p>有时候，当发生错误修改需要放弃全部修改时，可以以远程分支作为回退点退回到与远程分支一样的地方，执行的命令如下</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard origin/<span class="keyword">master</span> <span class="title">// origin</span>代表你远程仓库的名字，<span class="literal">master</span>代表分支名</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard origin/master // origin代表你远程仓库的名字，master代表分支名</span><br></pre></td></tr></table></figure>
 <h2 id="远程仓库的使用"><a href="#远程仓库的使用" class="headerlink" title="远程仓库的使用"></a>远程仓库的使用</h2><blockquote>
 <p>远程仓库是指在互联网或其他网络上托管的项目版本仓库。你可以拥有一个或多个远程仓库，而对于其中每个仓库，你可能拥有只读权限或读写权限。要同别人协作就需要管理这些远程仓库，在需要分享工作成果时，向其推送数据，从中拉取数据。管理远程仓库需要知道如何添加远程仓库、移除无效的远程仓库、管理各种远程仓库的分支和设置是否跟踪这些分支。</p>
 </blockquote>
@@ -571,10 +571,10 @@
 <p>可以用<code>git remote rename</code>来重命名远程仓库。如果想要把pb重命名为paul，可以用<code>git remote rename</code>命令来实现，如下所示：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rename pb paul</span><br></pre></td></tr></table></figure>
 <p>有时出于某种原因，需要删除某个远程仓库地址，可以使用git remote rm命令，如下所示：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git remote rm paul</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm paul</span><br></pre></td></tr></table></figure>
 <h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>就像大多数版本控制系统一样，Git可以把特定的历史版本标记为重要版本。其典型的应用场景就是标出发布版本（v1.0等）。本节你可学习到如何列举所有可用的标签，如何创建新的标签以及不同标签之间的差异。</p>
 <p>在Git中，列举可用标签的操作很简单，只需键入<code>git tag</code>即可：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">tag</span></span><br><span class="line">v0.<span class="number">1</span></span><br><span class="line">v1.<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git tag</span><br><span class="line">v0.1</span><br><span class="line">v1.3</span><br></pre></td></tr></table></figure>
 <p>Git使用的标记主要有两种类型：轻量标签和注释标签。</p>
 <blockquote>
 <p>轻量标签像是一个不变的分支——他只是一个指向某次提交的指针。</p>
@@ -600,7 +600,7 @@
 </blockquote>
 <h2 id="基本的分支与合并操作"><a href="#基本的分支与合并操作" class="headerlink" title="基本的分支与合并操作"></a>基本的分支与合并操作</h2><p>Git默认的分支名是<code>master</code>。当你想要创建一个新的分支可以使用<code>git branch [branch_name]</code>，这会创建一个指向当前提交的新指针。Git是如何确定你当前处在哪个分支上的呢？实际上Git维护着一个名为HEAD的特殊指针。在Git中，HEAD是一个指向当前所在的本地分支的指针。</p>
 <p>要切换到已有的分支，可以执行<code>git checkout</code>命令，例如:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout testing</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout testing</span><br></pre></td></tr></table></figure>
 <p>这条命令会改变HEAD指针，使其指向testing分支。而有一个简单方式可以在创建分支的同时又将HEAD指针切换到该分支上，使用命令<code>git checkout -b</code>。</p>
 <img src="/2018/02/02/Git的基本用法和扩展/git.png">
 <p>如果你想将分支hotfix合并到master主分支上，可以使用<code>git merge</code>命令来完成操作：</p>
@@ -608,7 +608,7 @@
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">$ git merge hotfix</span><br></pre></td></tr></table></figure>
 <p>合并时你会注意到出现了<code>fast-forward</code>的提示，由于当前所在的master分支指向的提交是要并入的hotfix分支的直接上游，因而Git会将master分支指针向前移动。因为这种单线历史不存在有分歧的工作。这就叫<code>fast-forward</code></p>
 <img src="/2018/02/02/Git的基本用法和扩展/Git_branch2.png">
-<p>合并完成后我们就可以删除hotfix分支，并继续完成iss53的工作<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git brancn -d hotfix</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git checkout iss53</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit -am <span class="string">'commit'</span></span></span><br></pre></td></tr></table></figure></p>
+<p>合并完成后我们就可以删除hotfix分支，并继续完成iss53的工作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git brancn -d hotfix</span><br><span class="line">$ git checkout iss53</span><br><span class="line">$ git commit -am &apos;commit&apos;</span><br></pre></td></tr></table></figure></p>
 <img src="/2018/02/02/Git的基本用法和扩展/Git_branch3.png">
 <p>假设现在iss53上面的工作已经完成，可以合并到master分支了。这次合并操作实现与上面的相同。但操作的结果却不一样了，在这次合并中，开发历史从某个早先的时间点开始有了分叉。由于当前的master分支指向的提交不是iss53分支的直接祖先，因而Git必须要做一些额外的工作。本例中，Git执行的操作是简单的三方合并。三方合并操作会使用两个待合并分支上最新提交的快照，以及这两个分支的共同祖先的提交快照。</p>
 <p>与之前的做法不同，这一次Git会基于三方合并的结果创建新的快照，让后再创建一个提交指向新建的快照。这个提交叫做‘’合并提交’‘。<strong>合并提交的特殊性在于他拥有不止一个父提交。</strong></p>
@@ -628,17 +628,17 @@
 <p>要与服务器同步，需要执行<code>git fetch origin</code>命令。这条命令会查询origin对应的服务器地址，并从服务器取得所有本地尚未包含的数据，然后更新本地数据库，最后把<code>origin/master</code>指针移动到最新位置上去</p>
 <img src="/2018/02/02/Git的基本用法和扩展/Git_branch9.png">
 <p>当需要同别人共享某个分支上的工作成果时，就要把它推送到一个具有写权限的远程仓库。假设你有一个叫做serverfix的分支需要与其他人协作开发，你可以按照之前推送第一个分支的方式推送它。只需执行<code>git push （remote_name） （branch_name）</code>命令即可</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">push</span> <span class="built_in">origin</span> serverfix</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin serverfix</span><br></pre></td></tr></table></figure>
 <p>当你和你的同事已经完成了一个功能，并且把工作合并到了远程的主分支master上，你已经不再需要这个功能的远程分支了。可以通过<code>git push --delete</code>选项来删除远程分支。例如：</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">push</span> <span class="built_in">origin</span> —<span class="built_in">delete</span> serverfix</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin —delete serverfix</span><br></pre></td></tr></table></figure>
 <h2 id="变基"><a href="#变基" class="headerlink" title="变基"></a>变基</h2><p>在Git中，要把更改从一个分支整合到另一个分支，有两种主要的方式：合并(merge)和变基(rebase)。</p>
 <img src="/2018/02/02/Git的基本用法和扩展/Git_branch3.png">
 <p>比如上面这种情况，我们之前采用的是merge命令，我们依然记得该命令会对两个分支上的最新提交快照以及这两个提交快照最近的共同祖先，进行一次三方合并，并创建一个新的合并提交。</p>
 <p>实际上除了上述方式之外还有一种方式：你可以把C5提交的更改以补丁的形式应用到C4上。在Git中，这就叫变基操作。该操作使用的是rebase命令，会把某个分支上的所有提交的更改在另一个分支上重现一遍。这样我们可以对上面的这种情况进行如下操作：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout iss53</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git rebase master</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout iss53</span><br><span class="line">$ git rebase master</span><br></pre></td></tr></table></figure>
 <img src="/2018/02/02/Git的基本用法和扩展/Git_branch10.png">
 <p>现在你可以回到master分支进行快进合并(fast-forward merge):</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout master</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git merge iss53</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">$ git merge iss53</span><br></pre></td></tr></table></figure>
 <p>到此为止，通过rebase和merge的方法得到的最终快照是完全一样的，但使用变基的方式可以获得更简洁的提交历史。</p>
 <p>变基操作可以带来种种好处。但它并非完美无缺，其缺点可以总结成一句话：<strong><em>不要对已经存在于本地仓库之外的提交执行变基操作。</em></strong></p>
 
@@ -675,6 +675,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/02/C语言/" rel="prev" title="C">
+                C <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -755,7 +759,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -855,7 +859,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">6.6k</span>
+    <span title="Site words total count">18.0k</span>
   
 </div>
 

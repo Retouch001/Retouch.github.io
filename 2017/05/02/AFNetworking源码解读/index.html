@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="从AFN到YTKN探究AFNetworking框架组成AFNetworking核心代码调用顺序 第一步:使用AFNetworking进行网络请求1234567AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]init];[manager GET:@&amp;quot;http://localhost&amp;quot; parameters:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://retouch001.github.io/2018/02/02/hello-world/index.html">
+<meta property="og:title" content="从AFN到YTKN探究">
+<meta property="og:url" content="https://retouch001.github.io/2017/05/02/AFNetworking源码解读/index.html">
 <meta property="og:site_name" content="Retouch的博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="从AFN到YTKN探究AFNetworking框架组成AFNetworking核心代码调用顺序 第一步:使用AFNetworking进行网络请求1234567AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]init];[manager GET:@&amp;quot;http://localhost&amp;quot; parameters:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-02T08:02:05.763Z">
+<meta property="og:updated_time" content="2018-03-12T06:20:31.571Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="从AFN到YTKN探究">
+<meta name="twitter:description" content="从AFN到YTKN探究AFNetworking框架组成AFNetworking核心代码调用顺序 第一步:使用AFNetworking进行网络请求1234567AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]init];[manager GET:@&amp;quot;http://localhost&amp;quot; parameters:">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://retouch001.github.io/2018/02/02/hello-world/"/>
+  <link rel="canonical" href="https://retouch001.github.io/2017/05/02/AFNetworking源码解读/"/>
 
 
 
 
 
-  <title>Hello World | Retouch的博客</title>
+  <title>从AFN到YTKN探究 | Retouch的博客</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://retouch001.github.io/2018/02/02/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://retouch001.github.io/2017/05/02/AFNetworking源码解读/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Retouch">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">从AFN到YTKN探究</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-02T16:02:05+08:00">
-                2018-02-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T20:43:49+08:00">
+                2017-05-02
               </time>
             
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-02T16:02:05+08:00">
-                2018-02-02
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-12T14:20:31+08:00">
+                2018-03-12
               </time>
             
           </span>
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  78
+                  847
                 </span>
               
 
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -407,15 +407,19 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="从AFN到YTKN探究"><a href="#从AFN到YTKN探究" class="headerlink" title="从AFN到YTKN探究"></a>从AFN到YTKN探究</h1><h2 id="AFNetworking框架组成"><a href="#AFNetworking框架组成" class="headerlink" title="AFNetworking框架组成"></a>AFNetworking框架组成</h2><h2 id="AFNetworking核心代码调用顺序"><a href="#AFNetworking核心代码调用顺序" class="headerlink" title="AFNetworking核心代码调用顺序"></a>AFNetworking核心代码调用顺序</h2><blockquote>
+<p><strong>第一步:</strong>使用AFNetworking进行网络请求<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]init];</span><br><span class="line"></span><br><span class="line">[manager GET:@&quot;http://localhost&quot; parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) &#123;</span><br><span class="line"></span><br><span class="line">&#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123;</span><br><span class="line"></span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+<p><strong>第二步：</strong>AFHTTPSessionManager的所有可选的初始化方法都最终调用到下面这个方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)initWithBaseURL:(NSURL *)url</span><br><span class="line">           sessionConfiguration:(NSURLSessionConfiguration *)configuration</span><br><span class="line">&#123;</span><br><span class="line">    self = [super initWithSessionConfiguration:configuration];</span><br><span class="line">    if (!self) &#123;</span><br><span class="line">        return nil;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Ensure terminal slash for baseURL path, so that NSURL +URLWithString:relativeToURL: works as expected</span><br><span class="line">    if ([[url path] length] &gt; 0 &amp;&amp; ![[url absoluteString] hasSuffix:@&quot;/&quot;]) &#123;</span><br><span class="line">        url = [url URLByAppendingPathComponent:@&quot;&quot;];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    self.baseURL = url;</span><br><span class="line"></span><br><span class="line">    self.requestSerializer = [AFHTTPRequestSerializer serializer];</span><br><span class="line">    self.responseSerializer = [AFJSONResponseSerializer serializer];</span><br><span class="line"></span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>第三步：</strong>初始化完成之后开始调用请求网络的方法(所有的请求方法最终都调用到了下面这个方法)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">- (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method</span><br><span class="line">                                       URLString:(NSString *)URLString</span><br><span class="line">                                      parameters:(id)parameters</span><br><span class="line">                                  uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgress</span><br><span class="line">                                downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgress</span><br><span class="line">                                         success:(void (^)(NSURLSessionDataTask *, id))success</span><br><span class="line">                                         failure:(void (^)(NSURLSessionDataTask *, NSError *))failure</span><br><span class="line">&#123;</span><br><span class="line">    NSError *serializationError = nil;</span><br><span class="line">    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:&amp;serializationError];</span><br><span class="line">    if (serializationError) &#123;</span><br><span class="line">        if (failure) &#123;</span><br><span class="line">            dispatch_async(self.completionQueue ?: dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                failure(nil, serializationError);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return nil;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    __block NSURLSessionDataTask *dataTask = nil;</span><br><span class="line">    dataTask = [self dataTaskWithRequest:request</span><br><span class="line">                          uploadProgress:uploadProgress</span><br><span class="line">                        downloadProgress:downloadProgress</span><br><span class="line">                       completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *error) &#123;</span><br><span class="line">        if (error) &#123;</span><br><span class="line">            if (failure) &#123;</span><br><span class="line">                failure(dataTask, error);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            if (success) &#123;</span><br><span class="line">                success(dataTask, responseObject);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    return dataTask;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><em>*续第三步1.   request</em> 的生成方法（是由 <em>AFURLRequestSerialization</em> 类来执行的）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">- (NSMutableURLRequest *)requestWithMethod:(NSString *)method</span><br><span class="line">                                 URLString:(NSString *)URLString</span><br><span class="line">                                parameters:(id)parameters</span><br><span class="line">                                     error:(NSError *__autoreleasing *)error</span><br><span class="line">&#123;</span><br><span class="line">    NSParameterAssert(method);</span><br><span class="line">    NSParameterAssert(URLString);</span><br><span class="line"></span><br><span class="line">    NSURL *url = [NSURL URLWithString:URLString];</span><br><span class="line"></span><br><span class="line">    NSParameterAssert(url);</span><br><span class="line"></span><br><span class="line">    NSMutableURLRequest *mutableRequest = [[NSMutableURLRequest alloc] initWithURL:url];</span><br><span class="line">    mutableRequest.HTTPMethod = method;</span><br><span class="line"></span><br><span class="line">    for (NSString *keyPath in AFHTTPRequestSerializerObservedKeyPaths()) &#123;</span><br><span class="line">        if ([self.mutableObservedChangedKeyPaths containsObject:keyPath]) &#123;</span><br><span class="line">            [mutableRequest setValue:[self valueForKeyPath:keyPath] forKey:keyPath];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    mutableRequest = [[self requestBySerializingRequest:mutableRequest withParameters:parameters error:error] mutableCopy];</span><br><span class="line"></span><br><span class="line">	return mutableRequest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>续第三步2 </strong>进一步对 <em>request</em> 进行参数的整合编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">- (NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request</span><br><span class="line">                               withParameters:(id)parameters</span><br><span class="line">                                        error:(NSError *__autoreleasing *)error</span><br><span class="line">&#123;</span><br><span class="line">    NSParameterAssert(request);</span><br><span class="line"></span><br><span class="line">    NSMutableURLRequest *mutableRequest = [request mutableCopy];</span><br><span class="line"></span><br><span class="line">    [self.HTTPRequestHeaders enumerateKeysAndObjectsUsingBlock:^(id field, id value, BOOL * __unused stop) &#123;</span><br><span class="line">        if (![request valueForHTTPHeaderField:field]) &#123;</span><br><span class="line">            [mutableRequest setValue:value forHTTPHeaderField:field];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    NSString *query = nil;</span><br><span class="line">    if (parameters) &#123;</span><br><span class="line">        if (self.queryStringSerialization) &#123;</span><br><span class="line">            NSError *serializationError;</span><br><span class="line">            query = self.queryStringSerialization(request, parameters, &amp;serializationError);</span><br><span class="line"></span><br><span class="line">            if (serializationError) &#123;</span><br><span class="line">                if (error) &#123;</span><br><span class="line">                    *error = serializationError;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                return nil;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            switch (self.queryStringSerializationStyle) &#123;</span><br><span class="line">                case AFHTTPRequestQueryStringDefaultStyle:</span><br><span class="line">                    query = AFQueryStringFromParameters(parameters);</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if ([self.HTTPMethodsEncodingParametersInURI containsObject:[[request HTTPMethod] uppercaseString]]) &#123;</span><br><span class="line">        if (query &amp;&amp; query.length &gt; 0) &#123;</span><br><span class="line">            mutableRequest.URL = [NSURL URLWithString:[[mutableRequest.URL absoluteString] stringByAppendingFormat:mutableRequest.URL.query ? @&quot;&amp;%@&quot; : @&quot;?%@&quot;, query]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        // #2864: an empty string is a valid x-www-form-urlencoded payload</span><br><span class="line">        if (!query) &#123;</span><br><span class="line">            query = @&quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        if (![mutableRequest valueForHTTPHeaderField:@&quot;Content-Type&quot;]) &#123;</span><br><span class="line">            [mutableRequest setValue:@&quot;application/x-www-form-urlencoded&quot; forHTTPHeaderField:@&quot;Content-Type&quot;];</span><br><span class="line">        &#125;</span><br><span class="line">        [mutableRequest setHTTPBody:[query dataUsingEncoding:self.stringEncoding]];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return mutableRequest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>第四步 </strong>经过第三步我们最终得到了一个 <em>request</em> ，现在以这个 <em>request</em> 来生成一个 <em>Task</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">- (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request</span><br><span class="line">                               uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgressBlock</span><br><span class="line">                             downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgressBlock</span><br><span class="line">                            completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error))completionHandler &#123;</span><br><span class="line"></span><br><span class="line">    __block NSURLSessionDataTask *dataTask = nil;</span><br><span class="line">    url_session_manager_create_task_safely(^&#123;</span><br><span class="line">        dataTask = [self.session dataTaskWithRequest:request];</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    [self addDelegateForDataTask:dataTask uploadProgress:uploadProgressBlock downloadProgress:downloadProgressBlock completionHandler:completionHandler];</span><br><span class="line"></span><br><span class="line">    return dataTask;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>续第四步1 </strong>生成了 <em>Task</em> 后，我们利用自定义的代理来监听请求的状态和进度</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    - (void)addDelegateForDataTask:(NSURLSessionDataTask *)dataTask</span><br><span class="line">                uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgressBlock</span><br><span class="line">              downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgressBlock</span><br><span class="line">             completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler</span><br><span class="line">&#123;</span><br><span class="line">    AFURLSessionManagerTaskDelegate *delegate = [[AFURLSessionManagerTaskDelegate alloc] initWithTask:dataTask];</span><br><span class="line">    delegate.manager = self;</span><br><span class="line">    delegate.completionHandler = completionHandler;</span><br><span class="line"></span><br><span class="line">    dataTask.taskDescription = self.taskDescriptionForSessionTasks;</span><br><span class="line">    [self setDelegate:delegate forTask:dataTask];</span><br><span class="line"></span><br><span class="line">    delegate.uploadProgressBlock = uploadProgressBlock;</span><br><span class="line">    delegate.downloadProgressBlock = downloadProgressBlock;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -441,18 +445,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/02/AFNetworking源码解读/" rel="next" title="从AFN到YTKN探究">
-                <i class="fa fa-chevron-left"></i> 从AFN到YTKN探究
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/02/Git的基本用法和扩展/" rel="prev" title="Git的基本用法和扩展">
-                Git的基本用法和扩展 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/02/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -600,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从AFN到YTKN探究"><span class="nav-number">1.</span> <span class="nav-text">从AFN到YTKN探究</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AFNetworking框架组成"><span class="nav-number">1.1.</span> <span class="nav-text">AFNetworking框架组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AFNetworking核心代码调用顺序"><span class="nav-number">1.2.</span> <span class="nav-text">AFNetworking核心代码调用顺序</span></a></li></ol></li></ol></div>
             
 
           </div>
